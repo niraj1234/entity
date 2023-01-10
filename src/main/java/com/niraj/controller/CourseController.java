@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -36,22 +37,15 @@ public class CourseController {
 		return courseService.getCourseById(courseId);
 	}
 	
-	@DeleteMapping("/{courseId}")
+	@DeleteMapping("/delete/{courseId}")
 	public String deleteById(@PathVariable("courseId") Long courseId ) {
 		courseService.deleteCourseById(courseId);
 		return "Course Deleted Successfully !!!";
 	}
 	
-	@PostMapping("edit/{courseId}")
+	@PutMapping("/edit/{courseId}")
 	public Course updateCourse(@RequestBody Course course , @PathVariable("courseId") Long courseId) {	
 		return courseService.updateCourse(course , courseId);		
 	}
 	
 }
-
-
-
-
-
-
-

@@ -17,8 +17,8 @@ import lombok.NoArgsConstructor;
 public class Course {
 
 	@Id
-	@SequenceGenerator(name="course_sequence" , sequenceName = "course_sequence" , allocationSize = 1)
-	@GeneratedValue(strategy = GenerationType.SEQUENCE , generator = "course_sequence")
+	@SequenceGenerator(name="course_sequence" , sequenceName = "course_sequence_1" , allocationSize = 1)
+	@GeneratedValue(strategy = GenerationType.SEQUENCE , generator = "course_sequence_table")
 	private Long courseId;
 	private String title;
 	private Integer fees;
