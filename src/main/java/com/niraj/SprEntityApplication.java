@@ -8,7 +8,7 @@ public class SprEntityApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(SprEntityApplication.class, args);
-		System.out.println("Project [ spr-entity ] for JPA Entity Relation 3" );
+		System.out.println("Project [ spr-entity ] for JPA Entity Relation 4" );
 	}
 
 }
