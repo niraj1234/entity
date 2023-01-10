@@ -42,6 +42,17 @@ public class CourseController {
 		return "Course Deleted Successfully !!!";
 	}
 	
+	@PostMapping("edit/{courseId}")
+	public Course updateCourse(@RequestBody Course course , @PathVariable("courseId") Long courseId) {
+
+		// get the course first
+		// Check if course available then update the value with new
+		// If data is not there for any atribute, keep older value as it
+		// after setting all the value call save method with courseId
+		
+		return course;		
+	}
+	
 }
 
 
