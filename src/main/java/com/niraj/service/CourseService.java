@@ -30,5 +30,12 @@ public class CourseService {
 		courseRepository.deleteById(courseId);		
 	}
 
+	public Course updateCourse(Course course, Long courseId) {
+		Course courseInDb = getCourseById(courseId);
+		courseInDb.setFees(course.getFees() != null ? course.getFees() : courseInDb.getFees());
+		courseInDb.setTitle(course.getTitle() != null ? course.getTitle() : courseInDb.getTitle());
+		return courseRepository.save(courseInDb);
+	}
+
 
 }
