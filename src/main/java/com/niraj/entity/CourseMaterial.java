@@ -17,7 +17,7 @@ import lombok.NoArgsConstructor;
 public class CourseMaterial {
 
 	@Id
-	@SequenceGenerator(name = "course-material-name" , sequenceName="course-material-seq-name" , allocationSize = 1)
+	@SequenceGenerator(name = "course-material-name" , sequenceName="course-material-gen-tbl" , allocationSize = 1)
 	@GeneratedValue(strategy = GenerationType.SEQUENCE , generator = "course-material-gen-tbl")
 	private Long courseMaterialId;
 	
