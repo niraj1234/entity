@@ -1,9 +1,12 @@
 package com.niraj.entity;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 
@@ -11,10 +14,12 @@ import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
+@Builder
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -31,4 +36,8 @@ public class Course {
 	@OneToOne(mappedBy = "course")
 	private CourseMaterial courseMaterial;
 
+	@ManyToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "teacher_id_fk" , referencedColumnName = "teacherId")
+	private Teacher teacher;
+	
 }

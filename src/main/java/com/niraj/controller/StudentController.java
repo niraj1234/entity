@@ -46,5 +46,14 @@ public class StudentController {
 		return studentService.getStudentByEmailNative(email);
 	}
 
+	@GetMapping("/updateFirstName/{firstName}/{emailId}")
+	public String updateFirstNameByEmailId(@PathVariable("firstName") String firstName , @PathVariable("emailId") String emailId ) {
+        String responseMessage = "failed updation";
+		int result = studentService.updateFirstNameByEmail(firstName,emailId);
+		if(result>0) {
+			responseMessage = "Updation of First Name successfully !!!" ;
+		}
+		return responseMessage;
+	}
 	
 }

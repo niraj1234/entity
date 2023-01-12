@@ -34,6 +34,10 @@ public class StudentService {
 	public Student getStudentByEmailNative(String emailId) {
 		return studentRepository.getStudentByEmailNative(emailId);
 	}
+
+	public int updateFirstNameByEmail(String firstName, String emailId) {
+		return studentRepository.updateStudentFirstNameByEmailId(firstName, emailId);
+	}
 	
 	
 }

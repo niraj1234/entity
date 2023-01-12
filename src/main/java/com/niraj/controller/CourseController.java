@@ -13,6 +13,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.niraj.entity.Course;
+import com.niraj.entity.CourseMaterial;
+import com.niraj.entity.Teacher;
 import com.niraj.service.CourseService;
 
 @RestController
@@ -47,5 +49,18 @@ public class CourseController {
 	public Course updateCourse(@RequestBody Course course , @PathVariable("courseId") Long courseId) {	
 		return courseService.updateCourse(course , courseId);		
 	}
+
+	
+	@GetMapping("/saveCourseWithTeacher")
+	public Course saveCourseWithTeacher() {
+		
+		Teacher teacherPriya = Teacher.builder().firstName("Priya").lastName("Sinha").build();
+//		CourseMaterial courseMaterialPy = CourseMaterial.builder().url("www.python.in").build();
+		Course coursePyThon = Course.builder().title("Python").fees(1111).teacher(teacherPriya).build();
+		coursePyThon.setTeacher(teacherPriya);
+		
+		return courseService.saveCourseWithTeacher(coursePyThon);
+	}
+	
 	
 }

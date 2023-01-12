@@ -37,5 +37,10 @@ public class CourseService {
 		return courseRepository.save(courseInDb);
 	}
 
+	public Course saveCourseWithTeacher(Course coursePyThon) {
+		System.out.println("In Course with Teache" + coursePyThon);
+		return courseRepository.save(coursePyThon);
+	}
+
 
 }
