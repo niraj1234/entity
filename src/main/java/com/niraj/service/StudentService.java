@@ -27,7 +27,13 @@ public class StudentService {
 	}
 	
 	
+	public Student getStudentByEmailId(String emailId) {
+		return studentRepository.getStudentByEmailId(emailId);
+	}
 	
+	public Student getStudentByEmailNative(String emailId) {
+		return studentRepository.getStudentByEmailNative(emailId);
+	}
 	
 	
 }

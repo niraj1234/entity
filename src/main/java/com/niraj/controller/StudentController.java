@@ -35,5 +35,16 @@ public class StudentController {
 	public List<Student> getStudentByFirstName(@PathVariable("firstName") String firstName){
 		return studentService.studentByFirstName(firstName);
 	}
+
+	@GetMapping("/byEmail/{email}")
+	public Student getStudentByEmail(@PathVariable("email") String email){
+		return studentService.getStudentByEmailId(email);
+	}
+
+	@GetMapping("/byEmailNative/{email}")
+	public Student getStudentByEmailNative(@PathVariable("email") String email){
+		return studentService.getStudentByEmailNative(email);
+	}
+
 	
 }
