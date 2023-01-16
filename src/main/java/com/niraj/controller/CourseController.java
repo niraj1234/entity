@@ -70,24 +70,11 @@ public class CourseController {
 	}
 	
 
-	@GetMapping("/pagination/{p}")
-	public List<Course> findAllPagination(@PathVariable("p") String p ) {
-		Pageable firstPageWithTwoRecords = PageRequest.of(0, 2);
-		Pageable secondPageWithThreeRecords  = PageRequest.of(1, 3);
-		
-		Page<Course> pageCourse = null ;
-		
-		if(p.equalsIgnoreCase("one")) {
-			pageCourse = courseRepository.findAll(firstPageWithTwoRecords);
-		}
-
-		if(p.equalsIgnoreCase("two")) {
-			pageCourse = courseRepository.findAll(secondPageWithThreeRecords);
-		}
-
-		List<Course> courses  = pageCourse.getContent();
-		
-		return courses;
+	@GetMapping("/pagination/{p}/{n}")
+	public List<Course> findAllPagination(@PathVariable("p") int p  , @PathVariable("n") int n)  {
+		Pageable pageAndRecords = PageRequest.of(p, n);
+		Page<Course> pageCourse = courseRepository.findAll(pageAndRecords);
+		return pageCourse.getContent();
 	}
 	
 	
